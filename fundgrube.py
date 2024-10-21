@@ -100,7 +100,7 @@ def mail_notify(new_count: int, posting_list, error: Exception = None) -> None:
             with open(previous_error_file, "w") as file:
                 file.write(error.__class__.__name__)
         elif new_count > 0:
-            message_text = " \n".join([f'{post}: {p.get_direct_url()}\n' for post in posting_list])
+            message_text = " \n".join([f'{post}: {post.get_direct_url()}\n' for post in posting_list])
             subject = f"{new_count} new items"
         else:
             message_text = str("Previous error fixed")
